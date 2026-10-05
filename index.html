@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Buck Tycoon — Yellow Bill Empire</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<canvas id="game"></canvas>
+
+<!-- HUD -->
+<header id="hud">
+  <div class="pill money-pill" title="Your bucks">
+    <img id="hudBill" alt="bucks">
+    <span id="money">100</span>
+  </div>
+  <div class="pill" title="Total income per second from placed items">
+    <span class="plus">+</span><span id="ips">0</span><span class="dim">/s</span>
+  </div>
+  <div class="spacer"></div>
+  <button id="muteBtn" class="hbtn" title="Mute (M)">🔊</button>
+  <button id="helpBtn" class="hbtn" title="Help (H)">❓</button>
+</header>
+
+<div id="toast"></div>
+
+<div id="carryHint" class="hidden">
+  Carrying <b id="carryName"></b> — click a glowing yard slot to place it ·
+  click the <span class="sell">SELL</span> zone for half back · <kbd>Esc</kbd> to stash
+</div>
+
+<!-- Inventory bar -->
+<div id="invWrap">
+  <div id="invLabel">BACKPACK</div>
+  <div id="invBar"><span class="inv-empty">empty — buy from a shop!</span></div>
+</div>
+
+<!-- Shop panel -->
+<div id="shopPanel" class="hidden">
+  <div class="panel-head">
+    <div>
+      <div id="shopTitle">Shop</div>
+      <div id="shopSub" class="panel-sub"></div>
+    </div>
+    <button id="closePanel" title="Close (Esc)">✕</button>
+  </div>
+  <div id="itemGrid"></div>
+</div>
+
+<!-- Help overlay -->
+<div id="helpOverlay" class="hidden">
+  <div id="helpCard">
+    <h1>💵 Buck Tycoon</h1>
+    <p class="tag">Buy stuff → place it in its shop's yard → <b>run through it</b> to collect bucks!</p>
+    <ul>
+      <li><kbd>W A S D</kbd> / <kbd>← ↑ ↓ →</kbd> — walk</li>
+      <li><kbd>E</kbd> — open the shop you're standing next to</li>
+      <li><b>Click a shop</b> — browse &amp; buy (items go to your backpack)</li>
+      <li><b>Click a backpack item</b> — carry it, then click a slot in <b>that shop's yard</b> to place it</li>
+      <li><b>Click a placed item</b> — pick it back up (its stored bucks collect automatically)</li>
+      <li><b>Sell zone</b> (red carpet, far left) — click it while carrying to sell for <b>half price</b></li>
+      <li><b>Yellow bills</b> float above items that have bucks to collect — run through them!</li>
+      <li><kbd>Esc</kbd> — close / stash &nbsp; <kbd>M</kbd> — mute &nbsp; <kbd>H</kbd> — this help</li>
+    </ul>
+    <p class="tag">Placed items store up to 10 minutes of bucks. Your game autosaves.</p>
+    <button id="closeHelp">Got it!</button>
+  </div>
+</div>
+
+<script src="game.js"></script>
+</body>
+</html>
